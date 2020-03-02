@@ -1,4 +1,7 @@
 <script>
+  // const url  = process.env.DICTIONARY_REFERENCES_THESAURUS_URL;
+  // const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78'
+  // console.log(url.env)
   const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78';
 
   let searchResults = [];
@@ -21,34 +24,44 @@
     console.log(searchResults)
   });
 	
-
 </script>
 
 
 <form >  
-    <input type='text' placeholder='Enter A Word' bind:value={searchWord}/>
+  <input type='text' placeholder='Enter A Word' bind:value={searchWord}/>
   <button on:click={onSubmit}>Click me</button>
   <h2>{ searchWord || 'Have Fun!' }</h2>
+    {#if !searchResults.length}
+    <p>Nothing yet...</p>
+  {:else}
+    {#each searchResults as searchResults}
+      <button type='button'>{searchResults}</button>
+    {/each}
+  {/if}
 </form>
 
 
 <style>
+
   form {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 2em;
   }
+
   input {
     text-transform: uppercase;
     height: 3em;
     width: 25%;
   }
+
   button {
     cursor: pointer;
     margin-top: .5em;
     width:25%;
   }
+
   h2 {
     text-transform: uppercase;
     border-bottom: solid 2px lightcoral;
@@ -56,4 +69,9 @@
     padding-bottom: .8em;
     width: 98%;
   }
+
+  p {
+    font-size: 1.3em;
+  }
+  
 </style>
