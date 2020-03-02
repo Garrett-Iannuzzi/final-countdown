@@ -1,4 +1,5 @@
 <script>
+  import WordContainer from '../WordContainer/WordContainer.svelte';
   // const url  = process.env.DICTIONARY_REFERENCES_THESAURUS_URL;
   // const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78'
   // console.log(url.env)
