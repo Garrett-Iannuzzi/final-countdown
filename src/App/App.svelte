@@ -1,10 +1,13 @@
 <script>
+	import Form from '../Form/Form.svelte';
+
+
 	let greeting = 'Welcome to Sexy Synonyms';
 
 	// const url  = process.env.DICTIONARY_REFERENCES_THESAURUS_URL;
   // const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78'
   let searchResults = [];
-  let searchWord = '';
+  export let searchWord = '';
   const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78'
   
   const findSynonyms = (async () => {
@@ -24,8 +27,7 @@
 	<h1>Hello, {greeting}!</h1>
 	<p>Use this application to search for a word, you will receive a list of synonyms in button form, 
 		if you click you will get a new list, happy learning!</p>
-	<input type='text' placeholder='Enter A Word' bind:value={searchWord}/>
-	<button on:click={findSynonyms}>Click me</button>
+	<Form />
 </main>
 
 <style>
