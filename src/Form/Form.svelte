@@ -1,54 +1,41 @@
 <script>
-  import WordContainer from '../WordContainer/WordContainer.svelte';
-  // const url  = process.env.DICTIONARY_REFERENCES_THESAURUS_URL;
-  // const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78'
-  // console.log(url.env)
-  const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78';
 
-  let searchResults = [];
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
   let searchWord = '';
 
   const onSubmit = e => {
     e.preventDefault();
-    findSynonyms();
     searchWord = '';
   };
 
-  const findSynonyms = (async () => {
-    const response = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${searchWord}?key=${url}`)
-    const data = await response.json();
-    const fullSynonyms = data.map(object => {
-      return object.meta.syns
-    })
-    const returnedWords = await fullSynonyms[0].flat();
-    searchResults = returnedWords;
-    console.log(searchResults)
-  });
-	
 </script>
 
 
 <form >  
   <input type='text' placeholder='Enter A Word' bind:value={searchWord}/>
   <button on:click={onSubmit}>Click me</button>
-  <h2>{ searchWord || 'Have Fun!' }</h2>
+</form>
+
+  <!-- <h2>{ searchWord || 'Have Fun!' }</h2>
     {#if !searchResults.length}
     <p>Nothing yet...</p>
   {:else}
     {#each searchResults as searchResults}
       <button type='button'>{searchResults}</button>
     {/each}
-  {/if}
-</form>
-
+  {/if} -->
 
 <style>
 
   form {
     display: flex;
+    height: 100vh;
     flex-direction: column;
     align-items: center;
     margin-top: 2em;
+    overflow: scroll;
   }
 
   input {

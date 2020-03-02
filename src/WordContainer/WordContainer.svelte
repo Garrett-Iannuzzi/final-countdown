@@ -1,10 +1,10 @@
 <script>
-	
+	export let searchResults
 </script>
 
 
 <section >  
-  <h1>Hi</h1>
+  <button type='button'>{searchResults}</button>
 </section>
 
 
