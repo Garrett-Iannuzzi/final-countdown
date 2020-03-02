@@ -1,10 +1,14 @@
 <script>
-	export let searchResults
+  export let firstSearchedWord;
+  export let searchResults;
 </script>
 
 
 <section >  
-  <button type='button'>{searchResults}</button>
+    <h2>{ firstSearchedWord || 'Have Fun!' }</h2>
+    {#each searchResults as searchResults}
+      <button type='button'>{searchResults}</button>
+    {/each}
 </section>
 
 

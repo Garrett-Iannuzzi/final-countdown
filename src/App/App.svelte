@@ -5,10 +5,11 @@
   const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78';
 	const greeting = 'Welcome to Sexy Synonyms';
   let searchResults = [];
-  let searchWord = '';
+  let word = '';
 
-	  const findSynonyms = (async () => {
-			const response = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${searchWord}?key=${url}`)
+	  const findSynonyms = (async (e) => {
+			word = e.detail;
+			const response = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=${url}`)
 			const data = await response.json();
 			const fullSynonyms = data.map(object => {
 				return object.meta.syns
@@ -23,12 +24,14 @@
 	<h1>Hello, {greeting}!</h1>
 	<p>Use this application to search for a word, you will receive a list of synonyms in button form, 
 		if you click you will get a new list, happy learning!</p>
-	<Form />
+	<Form on:submitword={findSynonyms} />
+
 	{#if !searchResults.length}
 		<p>Search for a word</p>
 	{:else}
-		<WordContainer />
+		<WordContainer firstSearchedWord={word} searchResults={searchResults}/>
 	{/if}
+
 </main>
 
 <style>
