@@ -1,26 +1,8 @@
 <script>
 	import Form from '../Form/Form.svelte';
 
+	const greeting = 'Welcome to Sexy Synonyms';
 
-	let greeting = 'Welcome to Sexy Synonyms';
-
-	// const url  = process.env.DICTIONARY_REFERENCES_THESAURUS_URL;
-  // const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78'
-  let searchResults = [];
-  export let searchWord = '';
-  const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78'
-  
-  const findSynonyms = (async () => {
-    const response = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${searchWord}?key=${url}`)
-    const data = await response.json();
-    const fullSynonyms = data.map(object => {
-      return object.meta.syns
-    })
-    const returnedWords = await fullSynonyms[0].flat();
-    searchResults = returnedWords;
-    console.log(searchResults)
-  });
-	
 </script>
 
 <main>
