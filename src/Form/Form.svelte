@@ -24,7 +24,6 @@
 
   form {
     display: flex;
-    height: 100vh;
     flex-direction: column;
     align-items: center;
     margin-top: 2em;
@@ -32,15 +31,32 @@
   }
 
   input {
+    border-radius: .0 .5em .5em 0;
     text-transform: uppercase;
+    margin-right: 10em;
     height: 3em;
     width: 25%;
   }
 
   button {
+    border-radius: .5em 0 0 .5em;
     cursor: pointer;
+    height: 3em;
     margin-top: .5em;
+    margin-left: 10em;
+    margin-bottom: 2em;
     width:25%;
   }
+
+  button:hover {
+    border-color: black;
+    color: black;
+    background-color: lightcoral;
+  }
+
   
 </style>
+
+
+
+

@@ -25,13 +25,11 @@
 	<p>Use this application to search for a word, you will receive a list of synonyms in button form, 
 		if you click you will get a new list, happy learning!</p>
 	<Form on:submitword={findSynonyms} />
-
-	{#if !searchResults.length}
-		<p>Search for a word</p>
+	{#if searchResults.length}
+		<WordContainer word={word} searchResults={searchResults}/>
 	{:else}
-		<WordContainer firstSearchedWord={word} searchResults={searchResults}/>
+		<p class='p-h2'>Have Fun!</p>
 	{/if}
-
 </main>
 
 <style>
@@ -53,6 +51,13 @@
 
 	p {
 		font-size: 1.3em;
+		margin: 0 auto;
+		width: 50%;
+	}
+
+	.p-h2 {
+		font-size: 2em;
+		font-weight: bold;
 		margin: 0 auto;
 		width: 50%;
 	}
