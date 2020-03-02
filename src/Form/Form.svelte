@@ -1,43 +1,22 @@
 <script>
-  // const url  = process.env.DICTIONARY_REFERENCES_THESAURUS_URL;
-  // const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78'
-  // console.log(url.env)
-  const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78';
 
-  let searchResults = [];
-  let searchWord = '';
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
+  let firstSearchedWord = '';
 
   const onSubmit = e => {
     e.preventDefault();
-    findSynonyms();
-    searchWord = '';
+    dispatch('submitword', firstSearchedWord)
+    firstSearchedWord = '';
   };
 
-  const findSynonyms = (async () => {
-    const response = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${searchWord}?key=${url}`)
-    const data = await response.json();
-    const fullSynonyms = data.map(object => {
-      return object.meta.syns
-    })
-    const returnedWords = await fullSynonyms[0].flat();
-    searchResults = returnedWords;
-    console.log(searchResults)
-  });
-	
 </script>
 
 
 <form >  
-  <input type='text' placeholder='Enter A Word' bind:value={searchWord}/>
-  <button on:click={onSubmit}>Click me</button>
-  <h2>{ searchWord || 'Have Fun!' }</h2>
-    {#if !searchResults.length}
-    <p>Nothing yet...</p>
-  {:else}
-    {#each searchResults as searchResults}
-      <button type='button'>{searchResults}</button>
-    {/each}
-  {/if}
+  <input type='text' placeholder='Enter A Word' bind:value={firstSearchedWord}/>
+  <button type='submit' on:click={onSubmit}>Click me</button>
 </form>
 
 
@@ -48,30 +27,36 @@
     flex-direction: column;
     align-items: center;
     margin-top: 2em;
+    overflow: scroll;
   }
 
   input {
+    border-radius: .0 .5em .5em 0;
     text-transform: uppercase;
+    margin-right: 10em;
     height: 3em;
     width: 25%;
   }
 
   button {
+    border-radius: .5em 0 0 .5em;
     cursor: pointer;
+    height: 3em;
     margin-top: .5em;
+    margin-left: 10em;
+    margin-bottom: 2em;
     width:25%;
   }
 
-  h2 {
-    text-transform: uppercase;
-    border-bottom: solid 2px lightcoral;
-    margin-top: 1.5em;
-    padding-bottom: .8em;
-    width: 98%;
+  button:hover {
+    border-color: black;
+    color: black;
+    background-color: lightcoral;
   }
 
-  p {
-    font-size: 1.3em;
-  }
   
 </style>
+
+
+
+
