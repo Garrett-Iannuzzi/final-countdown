@@ -1,31 +1,15 @@
 <script>
-	let greeting = 'Welcome to Sexy Synonyms';
+	import Form from '../Form/Form.svelte';
 
-	// const url  = process.env.DICTIONARY_REFERENCES_THESAURUS_URL;
-  // const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78'
-  let searchResults = [];
-  let searchWord = '';
-  const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78'
-  
-  const findSynonyms = (async () => {
-    const response = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${searchWord}?key=${url}`)
-    const data = await response.json();
-    const fullSynonyms = data.map(object => {
-      return object.meta.syns
-    })
-    const returnedWords = await fullSynonyms[0].flat();
-    searchResults = returnedWords;
-    console.log(searchResults)
-  });
-	
+	const greeting = 'Welcome to Sexy Synonyms';
+
 </script>
 
 <main>
 	<h1>Hello, {greeting}!</h1>
 	<p>Use this application to search for a word, you will receive a list of synonyms in button form, 
 		if you click you will get a new list, happy learning!</p>
-	<input type='text' placeholder='Enter A Word' bind:value={searchWord}/>
-	<button on:click={findSynonyms}>Click me</button>
+	<Form />
 </main>
 
 <style>
