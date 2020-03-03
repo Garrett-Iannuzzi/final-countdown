@@ -5,12 +5,15 @@
   const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78';
 	const greeting = 'Welcome to Sexy Synonyms';
   let searchResults = [];
-  let word = '';
+	let word = '';
+	let isLoading = '';
 
 	  const findSynonyms = (async (e) => {
 			word = e.detail;
+			isLoading = '...loading'
 			const response = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=${url}`)
 			const data = await response.json();
+			isLoading = '';
 			const fullSynonyms = data.map(object => {
 				return object.meta.syns
     })
@@ -28,6 +31,9 @@
 		<WordContainer word={word} searchResults={searchResults}/>
 	{:else}
 		<p class='p-h2'>Have Fun!</p>
+	{/if}
+	{#if isLoading}
+		<p class='p-loading-main'>{isLoading}</p>
 	{/if}
 </main>
 
@@ -59,6 +65,11 @@
 		margin: 0 auto;
 		width: 50%;
 	}
+
+	.p-loading-main {
+    font-size: 4em;
+		margin-top: 2em;
+  }
 
 	@media (min-width: 640px) {
 		main {
