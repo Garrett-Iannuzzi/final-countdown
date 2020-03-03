@@ -1,6 +1,4 @@
 import svelte from 'rollup-plugin-svelte';
-import replace from '@rollup/plugin-replace';
-import {config} from 'dotenv';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
@@ -26,15 +24,6 @@ export default {
 				css.write('public/build/bundle.css');
 			}
 		}),
-		// replace({
-		// 	process: JSON.stringify({
-		// 		env: {
-		// 			isProd: production,
-		// 			...config().parsed,
-		// 			// 'API_KEY': process.env.DICTIONARY_REFERENCES_THESAURUS_URL
-		// 		}
-		// 	})
-		// }),
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
 		// some cases you'll need additional configuration -
