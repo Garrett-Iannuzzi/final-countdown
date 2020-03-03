@@ -15,8 +15,8 @@
 
 
 <form >  
-  <input type='text' placeholder='Enter A Word' bind:value={firstSearchedWord}/>
-  <button type='submit' on:click={onSubmit}>Click me</button>
+  <input type='text' id='form-input' placeholder='Enter A Word' bind:value={firstSearchedWord}/>
+  <button type='submit' on:click={onSubmit}>Click Me</button>
 </form>
 
 
