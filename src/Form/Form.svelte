@@ -50,8 +50,9 @@
 
   button:hover {
     border-color: black;
-    color: black;
     background-color: lightcoral;
+    color: black;
+    font-weight: bold;
   }
 
   

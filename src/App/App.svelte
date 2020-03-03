@@ -16,7 +16,6 @@
     })
 			const returnedWords = await fullSynonyms[0].flat();
 			searchResults = returnedWords;
-			console.log(searchResults)
   });
 </script>
 
@@ -35,7 +34,6 @@
 <style>
 	main {
 		text-align: center;
-		height: 100vh;
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
