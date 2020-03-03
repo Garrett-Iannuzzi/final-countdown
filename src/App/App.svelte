@@ -3,7 +3,6 @@
 	import WordContainer from '../WordContainer/WordContainer.svelte';
 
   const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78';
-	const greeting = 'Welcome to Sexy Synonyms';
   let searchResults = [];
 	let word = '';
 	let isLoading = '';
@@ -23,7 +22,7 @@
 </script>
 
 <main>
-	<h1>Hello, {greeting}!</h1>
+	<h1>Hello, Welcome to Sexy Synonyms!</h1>
 	<p>Use this application to search for a word, you will receive a list of synonyms in button form, 
 		if you click you will get a new list, happy learning!</p>
 	<Form on:submitword={findSynonyms} />
