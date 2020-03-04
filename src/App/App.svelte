@@ -23,10 +23,14 @@
 </script>
 
 <main>
-	<img {src} alt='Information Icon' class='img' />
+	<div class='tool-tip'>
+		<img {src} alt='Information Icon' class='img'>
+		<span class='h3-tooltip'>
+			Use this application to search for a word, you will receive a list of synonyms in button form, 
+			if you click you will get a new list, happy learning!
+		</span>
+	</div>
 	<h1>Hello, Welcome to Sexy Synonyms!</h1>
-	<p>Use this application to search for a word, you will receive a list of synonyms in button form, 
-		if you click you will get a new list, happy learning!</p>
 	<Form on:submitword={findSynonyms} />
 	{#if searchResults.length}
 		<WordContainer word={word} searchResults={searchResults}/>
@@ -47,9 +51,27 @@
 		width: 100%;
 	}
 
+	.tool-tip {
+		margin: 0 auto;
+		width: 100%;
+	}
+	
 	.img {
-		height: 200px;
-		width: 200px;
+		cursor: help;
+		height: 250px;
+		width: 250px;
+	}
+
+	.h3-tooltip {
+		border: solid 5px lightcoral;
+		border-radius: 15px;
+		font-size: 1.5em;
+		margin-left: .5em;
+		visibility: hidden;
+		position: absolute;
+		padding: .5em;
+		width: 20%;
+		z-index: 1;
 	}
 
 	h1 {
@@ -75,7 +97,12 @@
 	.p-loading-main {
     font-size: 4em;
 		margin-top: 2em;
-  }
+	}
+	
+	.tool-tip:hover .h3-tooltip {
+		visibility: visible;
+	}
+
 
 	@media (min-width: 640px) {
 		main {
