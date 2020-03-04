@@ -30,4 +30,4 @@ Svelte | Jest | CSS | Fetch API | Javascript ES6
 ## UX/UI
 
 ### Final Countdown:
-
+![screenshot](public/images/screenshot-home.png)
