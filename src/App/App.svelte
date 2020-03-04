@@ -97,7 +97,7 @@
 		visibility: visible;
 	}
 
-	.img:hover {
+	.tool-tip:hover .img {
 		transform: rotate(220deg);
 		transition: 7s;
 	}
