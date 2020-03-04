@@ -28,7 +28,7 @@
 
 
 <section >  
-  <h2>SYNONYMS FOR: <span>{word}</span></h2>
+  <h2>SYNONYMS FOR: <span data-testid='span-word'>{word}</span></h2>
     {#if isLoading}
       <p class='p-loading'>{isLoading}</p>
     {:else}
