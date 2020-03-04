@@ -26,7 +26,7 @@
 	<div class='tool-tip'>
 		<img {src} alt='Information Icon' class='img'>
 		<span class='h3-tooltip'>
-			Use this application to search for a word, you will receive a list of synonyms in button form, 
+			Search for a word and you will receive a list of synonyms in BUTTON form, 
 			if you click you will get a new list, happy learning!
 		</span>
 	</div>
@@ -66,10 +66,10 @@
 		border: solid 5px lightcoral;
 		border-radius: 15px;
 		font-size: 1.5em;
-		margin-left: .5em;
+		margin-left: 2em;
 		visibility: hidden;
 		position: absolute;
-		padding: .5em;
+		padding: .7em;
 		width: 20%;
 		z-index: 1;
 	}
@@ -101,6 +101,11 @@
 	
 	.tool-tip:hover .h3-tooltip {
 		visibility: visible;
+	}
+
+	.img:hover {
+		transform: rotate(220deg);
+		transition: 7s;
 	}
 
 
