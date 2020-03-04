@@ -3,6 +3,8 @@
 ## Creator
 Garrett Iannuzzi - [gitHub](https://github.com/Garrett-Iannuzzi)
 
+Link to the [application](http://sexy-synonyms.surge.sh/)
+
 Link to [project board](https://github.com/users/Garrett-Iannuzzi/projects/3)
 
 ## Overview
