@@ -33,6 +33,7 @@
   input {
     border-radius: .0 .5em .5em 0;
     text-transform: uppercase;
+    margin-top: .6em;
     margin-right: 10em;
     height: 3em;
     width: 25%;

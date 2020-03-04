@@ -81,12 +81,6 @@
 		font-weight: 100;
 	}
 
-	p {
-		font-size: 1.3em;
-		margin: 0 auto;
-		width: 50%;
-	}
-
 	.p-h2 {
 		font-size: 2em;
 		font-weight: bold;
