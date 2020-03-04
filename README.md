@@ -31,4 +31,4 @@ Svelte | Jest | CSS | Fetch API | Javascript ES6
 
 ### Final Countdown:
 ![screenshot](public/images/screenshot-home.png)
-![gif](http://www.giphy.com/gifs/QsyzZEW8YQh7kcA2xN)
+![gif](public/images/final-gif.gif)
