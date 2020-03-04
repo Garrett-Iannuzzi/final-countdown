@@ -2,26 +2,28 @@
 	import Form from '../Form/Form.svelte';
 	import WordContainer from '../WordContainer/WordContainer.svelte';
 
-  const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78';
+	const url = '01672bcc-913a-4964-b9c5-2f4cafa8ca78';
+	const src = '../images/info.png';
   let searchResults = [];
 	let word = '';
 	let isLoading = '';
 
-	  const findSynonyms = (async (e) => {
-			word = e.detail;
-			isLoading = '...loading'
-			const response = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=${url}`)
-			const data = await response.json();
-			isLoading = '';
-			const fullSynonyms = data.map(object => {
-				return object.meta.syns
+	const findSynonyms = (async (e) => {
+		word = e.detail;
+		isLoading = '...loading'
+		const response = await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${word}?key=${url}`)
+		const data = await response.json();
+		isLoading = '';
+		const fullSynonyms = data.map(object => {
+			return object.meta.syns
     })
-			const returnedWords = await fullSynonyms[0].flat();
-			searchResults = returnedWords;
+		const returnedWords = await fullSynonyms[0].flat();
+		searchResults = returnedWords;
   });
 </script>
 
 <main>
+	<img {src} alt='Information Icon' class='img' />
 	<h1>Hello, Welcome to Sexy Synonyms!</h1>
 	<p>Use this application to search for a word, you will receive a list of synonyms in button form, 
 		if you click you will get a new list, happy learning!</p>
@@ -43,6 +45,11 @@
 		max-width: 240px;
 		margin: 0 auto;
 		width: 100%;
+	}
+
+	.img {
+		height: 200px;
+		width: 200px;
 	}
 
 	h1 {
